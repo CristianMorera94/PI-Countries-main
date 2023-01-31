@@ -1,0 +1,17 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    position: relative;    
+}
+
+.btnPageNumber {
+    
+}
+
+.btnPageNumber:hover{
+    
+}
+
+.btnPageNumber:focus{
+    
+}
