@@ -1,0 +1,29 @@
+.AllCard {
+    width: 190px;
+    height: 260px;
+    border-radius: 20px;
+    background-color: rgba(156, 157, 167, 0.842);
+    box-shadow: 5px 5px 10px rgb(63, 68, 114),
+                -5px -5px 10px rgb(63, 68, 114);
+    transition: all 0.5s
+}
+
+.AllCard:hover {
+    background-color: #6e7177;
+}
+
+
+.img-c{
+    height: 100px;
+    margin-top: 1.6em;
+    background: #000000;
+    margin-bottom: 0.4em;
+    box-shadow: -5px -5px 8px #ffffff7a, 
+                5px 5px 8px #a9a9aa7a;
+}
+.name {
+    color: #323438;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-decoration: none;
+}

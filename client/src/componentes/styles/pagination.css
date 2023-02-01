@@ -5,13 +5,27 @@
 }
 
 .btnPageNumber {
-    
+    width: 30px;
+    height: 30px;
+    border: 1px solid;
+    margin: 2px;
+    color:rgb(0, 0, 0);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    font-weight: bold; 
+    justify-items: center; 
+    font-family: "Comic Sans MS", Gadget, sans-serif;
+    font-size: medium; 
+    text-decoration: none;
 }
 
 .btnPageNumber:hover{
-    
+    background:rgb(0, 0, 0) ;
+    color: rgb(255, 255, 255);
 }
 
 .btnPageNumber:focus{
-    
+    background:rgb(0, 0, 0) ;
+    color: rgb(255, 255, 255);
 }

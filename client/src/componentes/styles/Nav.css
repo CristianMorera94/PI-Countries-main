@@ -1,0 +1,17 @@
+.navContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;     
+    margin-left: auto;
+}
+
+.createButton{
+    font-family:"Impact";
+    font-size: 30px;
+    font-weight: bold;
+    color:#232224;
+    text-decoration: none; 
+}
+

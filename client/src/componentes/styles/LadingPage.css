@@ -1,5 +1,5 @@
 .Container{
-    background-image:url('https://p4.wallpaperbetter.com/wallpaper/987/708/874/countries-flag-map-world-wallpaper-preview.jpg');
+    background-image:url('D:\Users\ZADI9\Desktop\PI-Countries-main\client\src\img\travel-items-assortment-above-view.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -14,23 +14,41 @@
     position: fixed;   
     text-justify: distribute;
     top: 100px; 
-    font-size: 80px;
-    color: #1a1a1d;
+    font-size: 85px;
+    color: #000000;
+    text-shadow:rgb(24, 32, 53) 1px 0 10px;
     font-family: "Montserrat", Gadget, sans-serif;    
 }
 
-.Button:hover {
-    letter-spacing: 3px;
-    background-color: hsl(261deg 80% 48%);
-    color: hsl(0, 0%, 100%);
-    box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
+.Button{
+    display: flex;
+    align-items: center;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 17px;
+    padding: 0.8em 1.3em 0.8em 0.9em;
+    color: white;
+    background: #ad5389;
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    border: none;
+    letter-spacing: 0.05em;
+    border-radius: 16px;
 }
 
-.Button:active {
-    letter-spacing: 3px;
-    background-color: hsl(261deg 80% 48%);
-    color: hsl(0, 0%, 100%);
-    box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
-    transform: translateY(10px);
-    transition: 100ms;
+button svg {
+    margin-right: 3px;
+    transform: rotate(30deg);
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+button span {
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+button:hover svg {
+    transform: translateX(5px) rotate(90deg);
+}
+
+button:hover span {
+    transform: translateX(7px);
 }

@@ -7,8 +7,9 @@ import {    getAllCountries,
         } from "../redux/actions/index"
 import AllCard from "./AllCard";
 import Pagination from "./pagination";
-//import './styles/Home.css'
+import './styles/Home.css'
 import NavBar from "./Nav";
+import SearchBar from "./SearchBar.jsx"
 
 export default function Home(){
 
@@ -66,12 +67,16 @@ export default function Home(){
     }
 
     return(
-        <div>
-            <div className="cont-home">
-                <NavBar/>
+        <div className="cont-home">
+            <div className="cont-home2">
+                <div className="Bar">
+                    <NavBar className ="navBar"/>
+                    <h3 className="title"> Contries</h3>
+                    <SearchBar className="search"/>
+                </div>
                 <div className="cont-filter">
                     <select className = "filter" onChange={e => handleFilterByContinent(e)}>
-                        <option value = "All">All</option>
+                        <option value = "All">Continent</option>
                         <option value = "Africa">Africa</option>
                         <option value = "Antarctica">Antarctica</option>
                         <option value = "Asia">Asia</option>
@@ -81,23 +86,23 @@ export default function Home(){
                         <option value = "Oceania">Oceania</option>
                     </select>
                     <select className="filter" defaultValue={"default"} onChange={e => handleSortByLetter(e)}>
-                        <option value="default" disabled>All</option>
+                        <option value="default" disabled>Sort by Name</option>
                         <option value="asc">A-Z</option>
                         <option value="des">Z-A</option>
                     </select>
-                    <select>
-                        <option>a</option>
+                    <select className="filter">
+                        <option>Activities</option>
                         <option>b</option>
                         <option>c</option>
                     </select>
-                    <select>
-                        <option>a</option>
+                    <select className="filter">
+                        <option>Population</option>
                         <option>b</option>
                         <option>c</option>
                     </select>
                 </div>
-
                 <div className="card-cont">
+                    <div className="card-cont-2">
                 {
                     currentCountries?.map( el =>{
                         return(
@@ -107,18 +112,18 @@ export default function Home(){
                         )
                     })
                 }
+                    </div>
                 </div>
-
+                
                 <div className="pagination">
-                    <button> Prev </button>
-                    <Pagination 
+                    <button className="previousNext"> Prev </button>
+                    <Pagination
                     countriesPage={countriesPage} 
                     allCountries={allCountries.length} 
                     pagination={pagination}
                     />
-                    <button> Next</button>
+                    <button className="previousNext"> Next</button>
                 </div>
-
             </div>
         </div>
     )

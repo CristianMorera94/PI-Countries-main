@@ -5,15 +5,16 @@ import {    GET_ALL_COUNTRIES,
             POST_ACTIVITY,
             FILTER_BY_CONTINENT,
             SORT_BY_LETTER,
-        } from "../actions/index"
-
+        } from "../actions/index";
 
 const initialState = {
     activities: [],
     Allactivity:[],
     allcountries: [],
-    countries: []
+    countries: [],
+    detail:[]
 }
+
 
 function rootReducer (state = initialState, action) {
     switch (action.type) {
@@ -28,7 +29,7 @@ function rootReducer (state = initialState, action) {
         case GET_COUNTRY_ID:
             return{
                 ...state,
-                countries: action.payload
+                detail: action.payload[0]
             };
 
         case GET_COUNTRY:
@@ -80,6 +81,7 @@ function rootReducer (state = initialState, action) {
             })
             return {
                 ...state,
+                allcountries:sortLetter,
                 countries: sortLetter
             };
 
