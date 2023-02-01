@@ -2,14 +2,14 @@
     width: 190px;
     height: 260px;
     border-radius: 20px;
-    background-color: rgba(156, 157, 167, 0.842);
+    background-color: rgba(156, 157, 167, 0.384);
     box-shadow: 5px 5px 10px rgb(63, 68, 114),
                 -5px -5px 10px rgb(63, 68, 114);
     transition: all 0.5s
 }
 
 .AllCard:hover {
-    background-color: #6e7177;
+    background-color: #f707079a;
 }
 
 
