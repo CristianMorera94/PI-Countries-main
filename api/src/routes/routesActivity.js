@@ -26,8 +26,7 @@ routerActivity.post('/', async(req,res) => {
                 await createActivity.addCountry(countries)
             }
         });
-//        console.log(createActivity);
-//        console.log("ENTIDAD", createActivity.__proto__);
+
         return res.status(201).send("actividad creada")
     } catch (error) {
     console.log(error)

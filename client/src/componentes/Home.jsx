@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom";
 import {    getAllCountries, 
             filterByContinent,
-            sortByLetter,           
+            filterByActivity,
+            sortByName,
+            sortByPopulation 
         } from "../redux/actions/index"
 import AllCard from "./AllCard";
 import Pagination from "./pagination";
@@ -19,16 +21,19 @@ export default function Home(){
         dispatch(getAllCountries())
     },[dispatch])
 
+    const allActivities = useSelector((state) => state.activities);
     const allCountries = useSelector((state) => state.countries);  
     
     const [currentPage, setCurrentPage] = useState(1)
     const [ countriesPage, setCountriesPage] = useState(9)///cantidad de personajes por pagina
 
+    const [sortName, setSortName] = useState("");
+    const [sortPopulation, setSortPopulation] = useState("");
+
     const [ setSortLetter] = useState("")
 
     const indexOfLastCountries = currentPage * countriesPage
     const indexOfFirstCountries = indexOfLastCountries - countriesPage;
-    
     const currentCountries = allCountries.slice(indexOfFirstCountries,indexOfLastCountries)
 
     //paginado 
@@ -55,23 +60,37 @@ export default function Home(){
     function handleFilterByContinent(payload){
         dispatch(filterByContinent(payload.target.value));
         setCurrentPage(1);
-        //handleSortByLetter(payload)
     }
 
     ///ordenar por orden alfabetico 
-    function handleSortByLetter(e) {
+    function handleSortByName(e) {
         e.preventDefault();
-        dispatch(sortByLetter(e.target.value));
+        dispatch(sortByName(e.target.value));
         setCurrentPage(1);
-        setSortLetter(`Sort ${e.target.value}`);
+        setSortName(`Sort ${e.target.value}`);
+    }
+
+    ///filtrado por actividades
+    function handleFilterByActivity (e) {
+        dispatch(filterByActivity(e.target.value));
+        console.log(e.target.value)
+        setCurrentPage(1)
+    }
+
+    ///filtro de poblacion
+    function handleSortByPopulation(e) {
+        e.preventDefault();
+        dispatch(sortByPopulation(e.target.value));
+        setCurrentPage(1);
+        setSortPopulation(`Sort ${e.target.value}`);
     }
 
     return(
         <div className="cont-home">
             <div className="cont-home2">
-                <div className="Bar">
+                <div className="Bar-home">
                     <NavBar className ="navBar"/>
-                    <h3 className="title"> Contries</h3>
+                    <h3 className="title-home"> PI - Contries</h3>
                     <SearchBar className="search"/>
                 </div>
                 <div className="cont-filter">
@@ -85,33 +104,36 @@ export default function Home(){
                         <option value = "South America">South America</option>
                         <option value = "Oceania">Oceania</option>
                     </select>
-                    <select className="filter" defaultValue={"default"} onChange={e => handleSortByLetter(e)}>
-                        <option value="default" disabled>Sort by Name</option>
+                    <select className="filter" defaulvalue={"default"} onChange={(e) => handleSortByName(e)}>
+                        <option value="default" disabled>Sort by name</option>
                         <option value="asc">A-Z</option>
                         <option value="des">Z-A</option>
                     </select>
-                    <select className="filter">
-                        <option>Activities</option>
-                        <option>b</option>
-                        <option>c</option>
+                    <select className="filter" defaultValue={"default"} onChange={(e) => handleSortByPopulation(e)}>
+                        <option value="default" disabled>Sort by Population</option>
+                        <option value="des">Higher Population</option>
+                        <option value="asc">Lower Population</option>
                     </select>
-                    <select className="filter">
-                        <option>Population</option>
-                        <option>b</option>
-                        <option>c</option>
+                    <select className="filter" onChange = {e => handleFilterByActivity(e)}>
+                        <option value = "All">Select Activity</option>
+                        {allActivities?.map((e) => {
+                            return (
+                                <option value = {e.name}>{e.name}</option>
+                            )
+                        })}
                     </select>
                 </div>
                 <div className="card-cont">
                     <div className="card-cont-2">
-                {
-                    currentCountries?.map( el =>{
-                        return(
-                            <Link to={"/home/" + el.id }>
-                                <AllCard name={el.name} image={el.imgFlag}/>
-                            </Link>
-                        )
-                    })
-                }
+                    {
+                        currentCountries?.map( el =>{
+                            return(
+                                <Link to={"/home/" + el.id }>
+                                    <AllCard name={el.name} image={el.imgFlag}/>
+                                </Link>
+                            )
+                        })
+                    }
                     </div>
                 </div>
                 

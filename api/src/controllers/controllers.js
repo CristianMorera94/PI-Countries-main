@@ -13,27 +13,13 @@ const { Country } = require('../db');
             continent: country.continents[0],
             subregion: country.subregion? country.subregion:'no tiene',
             area: country.area? country.area: 'no tiene',
+            population: country.population,
         };
     })
     const result = await Country.bulkCreate(api)
     return result
 };
-    /*const getApiInfo = async () =>{
-    const {data} = await axios.get(`https://api.dhsprogram.com/rest/dhs/countries`);
-    const api = await data.Data.map( country => {
-        return{
-            id: country.ISO3_CountryCode,
-            name: country.CountryName,
-            imgFlag: country.CountryName,
-            capital: country.SubregionName,
-            continent: country.ISO3_CountryCode,
-            subregion: country.CountryName,
-            area: country.RegionOrder,
-        }
-    });
-    const result = await Country.bulkCreate(api)
-    return result
-};*/
+    
 
 module.exports={
     getApiInfo,

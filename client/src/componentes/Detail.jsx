@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { getCountryId } from "../redux/actions";
 import NavBar from "./Nav";
+import './styles/Detail.css'
+
 
 export default function Detail(){
     const {id,}= useParams();
@@ -16,9 +18,10 @@ export default function Detail(){
     )
 
     return(
-        <div className="Detail">
-            <div>
-                <NavBar/>
+        <div className="cont-Detail">
+            <div className="Bar">
+                <NavBar className="Nar"/>
+                <h3 className="title"> PI - Contries</h3>
             </div>
             <div>
                 {detailCountry.length ?  <div className='loading'>
@@ -34,7 +37,8 @@ export default function Detail(){
                         <h3>Capital: {detailCountry.capital}</h3>
                         <h3>Continent: {detailCountry.continent}</h3>                                
                         <h3>Subregion: {detailCountry.subregion}</h3>                                    
-                        <h3>Area: {detailCountry.area}km²</h3>                                    
+                        <h3>Area: {detailCountry.area}km²</h3>
+                        <h3>Population: {detailCountry.population}</h3> 
                     </div>
                     <div>
                     { detailCountry.activities?.map(e => {

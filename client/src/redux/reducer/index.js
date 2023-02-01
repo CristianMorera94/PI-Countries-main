@@ -4,7 +4,9 @@ import {    GET_ALL_COUNTRIES,
             GET_ACTIVITY,
             POST_ACTIVITY,
             FILTER_BY_CONTINENT,
-            SORT_BY_LETTER,
+            FILTER_BY_ACTIVITY,
+            SORT_BY_NAME,
+            SORT_BY_POPULATION,
         } from "../actions/index";
 
 const initialState = {
@@ -50,7 +52,7 @@ function rootReducer (state = initialState, action) {
             }
 
         case FILTER_BY_CONTINENT:
-            const filterByContinent = state.allcountries
+            const filterByContinent = state.allcountries;
             const stateCountries = action.payload === 'All' ?
             filterByContinent :
             filterByContinent.filter(el => el.continent === action.payload)
@@ -59,31 +61,64 @@ function rootReducer (state = initialState, action) {
                 countries: stateCountries
             };
             
-        case SORT_BY_LETTER:
-            let sortLetter = action.payload === 'asc' ?
-            state.countries.sort((a, b) => {
-                if (a.name > b.name) {
+            case FILTER_BY_ACTIVITY:            
+            const activities = state.allCountries;
+            const countryactivity = action.payload ==="All"? 
+            activities.filter(c => c.Activities.length > 0):
+            activities.filter(c => c.Activities.find(a => a.name === action.payload));
+                return{
+                    ...state,
+                    countries: countryactivity
+                };
+
+        case SORT_BY_NAME:
+            let sortedByName = action.payload === 'asc' ?
+                state.countries.sort(function(a, b) {
+                if(a.name > b.name) {
                     return 1
                 } else if (b.name > a.name) {
                     return -1
                 } else {
                     return 0
-                }
-            }) : 
-            state.countries.sort((a, b) => {
-                if (a.name > b.name) {
+                }}) : 
+                state.countries.sort(function(a, b) {
+                if(a.name > b.name) {
                     return -1
                 } else if (b.name > a.name) {
                     return 1
                 } else {
                     return 0
-                }
-            })
+                }}) 
             return {
                 ...state,
-                allcountries:sortLetter,
-                countries: sortLetter
-            };
+                countries: sortedByName
+            }
+            
+        case SORT_BY_POPULATION:
+            let sortedByPopulation = action.payload === "asc" ? 
+                state.countries.sort((a, b) => {
+                    if (a.population > b.population) {
+                        return 1;
+                    }
+                    if (b.population > a.population) {
+                        return -1;
+                    }
+                        return 0;
+                    })
+                : state.countries.sort((a, b) => {
+                    if (a.population > b.population) {
+                        return -1;
+                    }
+                    if (b.population > a.population) {
+                        return 1;
+                    }
+                        return 0;
+                });
+                return {
+                    ...state,
+                    allCountries: sortedByPopulation,
+                    countries: sortedByPopulation,
+                };
 
         default:
             return {

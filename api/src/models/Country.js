@@ -40,6 +40,10 @@ module.exports = (sequelize) => {
       type: DataTypes.DECIMAL,
       allowNull: true,
     },
+    population:{
+      type: DataTypes.DECIMAL,
+      allowNull: true,
+    },
 
     createdInDb: {
       type: DataTypes.BOOLEAN,

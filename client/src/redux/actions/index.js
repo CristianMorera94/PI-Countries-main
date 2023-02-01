@@ -8,7 +8,9 @@ export const GET_ACTIVITY = "GET_ACTIVITY";
 export const POST_ACTIVITY = "POST_ACTIVITY";
 
 export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";
-export const SORT_BY_LETTER = "SORT_BY_LETTER";
+export const SORT_BY_NAME = "SORT_BY_NAME";
+export const FILTER_BY_ACTIVITY="FILTER_BY_ACTIVITY";
+export const SORT_BY_POPULATION="SORT_BY_POPULATION";
 
 export function getAllCountries(){
     return async function (dispatch){
@@ -75,9 +77,23 @@ export function filterByContinent(payload){
     }
 }
 
-export function sortByLetter (payload){
+export function filterByActivity(payload){
+    return {
+        type: "FILTER_BY_ACTIVITY",
+        payload: payload,
+    }
+};
+
+export function sortByName (payload){
     return{
-        type: SORT_BY_LETTER,
+        type: SORT_BY_NAME,
+        payload
+    }
+}
+
+export function sortByPopulation (payload){
+    return{
+        type: "SORT_BY_POPULATION",
         payload
     }
 }
