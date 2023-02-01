@@ -184,12 +184,13 @@ export default function Activity(){
                     <button className="createButton" type="submit" disabled ={!buttonEnabled}>Create</button>
                 </form>
             </div>
+            <div className="btnCountry">
             {input.relatedCountries.map(c =>
-                    <div className="btn">
-                        <p>{c}</p>
-                        <button onClick={() => handleDelete(c)}>X</button>
+                    <div >
+                        <button className="custom-btn btn-1" onClick={() => handleDelete(c)}>{c}</button>
                     </div>
                 )}
+            </div>
         </div>
     )
 
