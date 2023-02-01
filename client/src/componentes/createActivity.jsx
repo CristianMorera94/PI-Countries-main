@@ -4,7 +4,8 @@ import { Link, useHistory } from "react-router-dom";
 import {    getAllCountries,
             postAction,
             getAction,           
-        } from "../redux/actions/index"
+        } from "../redux/actions/index";
+import './styles/createActivity.css'
 
 export default function Activity(){
 
@@ -122,22 +123,27 @@ export default function Activity(){
 
     return(
         <div className="container-creare-activity">
-            <h1>Create Activity</h1>
+            <div className="barActivity">
+                <h1 className="title"> PI - Contries</h1>
+                <h1>Create Activity</h1>
+                <Link className="btnHome" to= '/home'>Back to Home</Link>
+            </div>
+            
             <div className="container-formulario">
                 <form onSubmit={e => handleSubmit(e)}>
-                    <div>
+                    <div className="formulario">
                         <lable>Activity:</lable>
                         <input type="text" value={input.name} name="name" onChange={ handleChange}/>
                         {errors.name && (<p className="msg-error">{errors.name}</p>)}
                     </div>
 
-                    <div>
+                    <div className="formulario">
                         <lable>Duration Min:</lable>
                         <input type="text" value={input.time} name="time" onChange={ handleChange}/>
                         {errors.time && (<p className="msg-error">{errors.time}</p>)}
                     </div>
 
-                    <div>
+                    <div className="formulario">
                         <label>Difficulty:</label>
                         <select defaultValue = {'default'} name = "difficulty" onChange = {e => handleSelect(e)}>
                             <option value ='default' disabled>Difficulty</option>
@@ -151,8 +157,7 @@ export default function Activity(){
                     <div>
                         {errors.difficulty && (<p className="msg-error">{errors.difficulty}</p>)}
                     </div>
-
-                    <div>
+                    <div className="formulario">
                         <label>Season: </label>
                         <select defaultValue = {'default'} name = "season" onChange = {e => handleSelect(e)}>
                             <option value='default' disabled>Season</option>
@@ -166,7 +171,7 @@ export default function Activity(){
                         {errors.season && (<p className="msg-error">{errors.season}</p>)}
                     </div>
 
-                    <div>
+                    <div className="formulario">
                         <label> Country: </label>
                         <select defaultValue = {'default'} name = "relatedCountries" onChange = {(e) => handleSelectCountry(e)}>
                             <option value = 'default' disabled>Select Country</option>
@@ -178,16 +183,13 @@ export default function Activity(){
                     </div>
                     <button className="createButton" type="submit" disabled ={!buttonEnabled}>Create</button>
                 </form>
-                {input.relatedCountries.map(c =>
-                    <div>
+            </div>
+            {input.relatedCountries.map(c =>
+                    <div className="btn">
                         <p>{c}</p>
                         <button onClick={() => handleDelete(c)}>X</button>
                     </div>
                 )}
-            </div>
-            <Link to='/home'>
-                <button className="buttonCreateHome">Back to Home</button>
-            </Link>
         </div>
     )
 

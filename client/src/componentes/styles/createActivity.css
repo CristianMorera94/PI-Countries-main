@@ -1,0 +1,66 @@
+.container-creare-activity{
+    background-image:url('D:\Users\ZADI9\Desktop\PI-Countries-main\client\src\img\pexels-lara-jameson-8828354.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.barActivity{
+    background-color: rgba(255, 253, 253, 0.301);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;     
+    margin-left: 5px;
+}
+
+.container-formulario{
+    background-color: rgba(240, 255, 255, 0.555);
+    display: block;
+    display: flex;  
+    width: 400px;
+    height: 400px;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 70px;
+    margin-top: 12px;
+    margin-left: 500px; 
+    border-radius: 20px;
+    
+}
+
+.formulario{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: medium;
+    font-weight: bold;
+    border-radius: 5px;
+    color: #000000;
+    font-weight: bold;
+    font-family:Arial, Helvetica, sans-serif;
+    opacity: 50%;
+    margin: 5px;
+}
+
+.msg-error {
+    color:red
+}
+
+.btn{
+    width: 40px;
+    height: 20px;
+    padding: 17px 40px;
+    border-radius: 15px;
+    border: 0;
+    background-color: rgb(68, 13, 61);
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 10px;
+    transition: all .5s ease;
+    color: whitesmoke;
+}
