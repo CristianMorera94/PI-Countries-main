@@ -9,7 +9,7 @@
 }
 
 .AllCard:hover {
-    background-color: #f707079a;
+    background-color: #4e4e4e9a;
 }
 
 
@@ -22,7 +22,7 @@
                 5px 5px 8px #a9a9aa7a;
 }
 .name {
-    color: #323438;
+    color: #000000;
     font-weight: bold;
     font-size: 1.5em;
     text-decoration: none;

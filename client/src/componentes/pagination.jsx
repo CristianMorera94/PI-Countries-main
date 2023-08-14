@@ -13,11 +13,11 @@ export default function pagination({ countriesPage, allCountries, pagination }){
                 {
                     pageNumber && pageNumber.map( number =>{
                         return(
-                        <li key={number}>
+                        <a key={number}>
                             <button className="btnPageNumber" onClick={() => pagination(number)}>
                                 {number}
                             </button>
-                        </li>
+                        </a>
                         )
                     })
                 }

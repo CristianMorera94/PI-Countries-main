@@ -1,9 +1,9 @@
 .cont-home{
-    background-image:url('D:\Users\ZADI9\Desktop\PI-Countries-main\client\src\img\above-view-travel-map-and-airplane.jpg');
+    
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: auto;
+    height: 100vh;
     width: 100vw;
 }
 

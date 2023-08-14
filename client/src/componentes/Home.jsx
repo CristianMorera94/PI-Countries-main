@@ -138,13 +138,13 @@ export default function Home(){
                 </div>
                 
                 <div className="pagination">
-                    <button className="previousNext"> Prev </button>
+                    
                     <Pagination
                     countriesPage={countriesPage} 
                     allCountries={allCountries.length} 
                     pagination={pagination}
                     />
-                    <button className="previousNext"> Next</button>
+
                 </div>
             </div>
         </div>
